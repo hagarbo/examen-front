@@ -18,3 +18,8 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_USER }}/examen-front:latest .
       - name: Push
         run: docker push ${{ secrets.DOCKER_USER }}/examen-front:latest
+
+  render-deploy-hook:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl ${{ secrets.RENDER_HOOK }}
