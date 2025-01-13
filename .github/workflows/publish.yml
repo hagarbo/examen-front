@@ -20,6 +20,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USER }}/examen-front:latest
 
   render-deploy-hook:
+    needs: docker-image
     runs-on: ubuntu-latest
     steps:
       - run: curl ${{ secrets.RENDER_HOOK }}
